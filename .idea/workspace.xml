@@ -4,58 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/company/models/Bus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/models/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/models/Motorcycle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/models/SpecialVehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/models/Truck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/BusRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/CarRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/MotorcycleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/SpecialVehicleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/TruckRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IBusRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/ICarRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IMotorcycleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/ISpecialVehicleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/ITruckRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lecture5JDBCExample.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/MyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/controllers/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/controllers/interfaces/IUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/data/PostgresDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/data/PostgresDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/data/interfaces/IDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/data/interfaces/IDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/interfaces/IUserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/MyApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/interfaces/IUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/interfaces/IUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/PostgresDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/interfaces/IDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Bus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Motorcycle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/SpecialVehicle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Truck.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/BusRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/CarRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/MotorcycleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/SpecialVehicleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/TruckRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IBusRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/ICarRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IMotorcycleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/ISpecialVehicleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/ITruckRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IUserRepository.java" afterDir="false" />
-    </list>
+    <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,30 +40,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/amirsaulebekov/Documents/UNI/IT Uni/OOP/ProjectOOP",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/amirsaulebekov/Documents/UNI/IT Uni/OOP/ProjectOOP&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
