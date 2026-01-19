@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Lecture5JDBCExample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture5JDBCExample.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/interfaces/IUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/controllers/interfaces/IUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/PostgresDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/data/PostgresDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/interfaces/IDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/data/interfaces/IDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/interfaces/IUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/MyApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/controllers/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/controllers/interfaces/IUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/data/PostgresDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/data/interfaces/IDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/models/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/repositories/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/repositories/interfaces/IUserRepository.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "am1res"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/am1res/OOP-Project-1.git",
+    "accountId": "0bea5d1a-89a3-41ea-a2d1-2ad78ec58d62"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="38KzUDqu35nS63tgunxKZDSlWLI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="" />
+      <created>1768563064603</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1768563064603</updated>
+      <workItem from="1768563066167" duration="2375000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
