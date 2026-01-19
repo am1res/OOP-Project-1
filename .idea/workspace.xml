@@ -5,49 +5,87 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Lecture5JDBCExample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture5JDBCExample.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/MyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/interfaces/IUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/controllers/interfaces/IUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/PostgresDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/data/PostgresDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/interfaces/IDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/data/interfaces/IDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/repositories/interfaces/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/MyApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/controllers/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/controllers/interfaces/IUserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/data/PostgresDB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/data/interfaces/IDB.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/models/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/repositories/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/src/com/company/repositories/interfaces/IUserRepository.class" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/models/Bus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/models/Car.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/models/Motorcycle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/models/SpecialVehicle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/models/Truck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/BusRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/CarRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/MotorcycleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/SpecialVehicleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/TruckRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IBusRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/ICarRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IMotorcycleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/ISpecialVehicleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/ITruckRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lecture5JDBCExample.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/controllers/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/controllers/interfaces/IUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/data/PostgresDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/data/PostgresDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/data/interfaces/IDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/data/interfaces/IDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/models/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/repositories/interfaces/IUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/MyApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/controllers/interfaces/IUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/interfaces/IUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/PostgresDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/data/interfaces/IDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Bus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Motorcycle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/SpecialVehicle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/Truck.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/BusRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/CarRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/MotorcycleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/SpecialVehicleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/TruckRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IBusRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/ICarRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IMotorcycleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/ISpecialVehicleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/ITruckRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/src/com/company/repositories/interfaces/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IUserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "am1res"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;am1res&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/am1res/OOP-Project-1.git",
-    "accountId": "0bea5d1a-89a3-41ea-a2d1-2ad78ec58d62"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/am1res/OOP-Project-1.git&quot;,
+    &quot;accountId&quot;: &quot;0bea5d1a-89a3-41ea-a2d1-2ad78ec58d62&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="38KzUDqu35nS63tgunxKZDSlWLI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -64,22 +102,40 @@
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/amirsaulebekov/Documents/UNI/IT Uni/OOP/ProjectOOP",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="pom.xml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="pom.xml" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -96,11 +152,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1768563064603</updated>
-      <workItem from="1768563066167" duration="2375000" />
+      <workItem from="1768563066167" duration="3206000" />
+      <workItem from="1768801659334" duration="1407000" />
+      <workItem from="1768804138888" duration="1037000" />
+      <workItem from="1768805195729" duration="53000" />
+      <workItem from="1768805267079" duration="2176000" />
+      <workItem from="1768825145449" duration="568000" />
+      <workItem from="1768825728434" duration="117000" />
+      <workItem from="1768825922060" duration="3709000" />
+      <workItem from="1768835397922" duration="570000" />
+      <workItem from="1768835989357" duration="184000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
