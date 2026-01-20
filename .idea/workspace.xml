@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="" />
+    <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lecture5JDBCExample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lecture5JDBCExample.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +33,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/am1res/OOP-Project-1.git&quot;,
-    &quot;accountId&quot;: &quot;0bea5d1a-89a3-41ea-a2d1-2ad78ec58d62&quot;
+    &quot;accountId&quot;: &quot;bed250f0-14b1-4807-b398-91140c435288&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -89,8 +93,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
-        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
       </set>
     </attachedChunks>
   </component>
@@ -111,6 +115,8 @@
       <workItem from="1768825922060" duration="3709000" />
       <workItem from="1768835397922" duration="570000" />
       <workItem from="1768835989357" duration="184000" />
+      <workItem from="1768840163399" duration="540000" />
+      <workItem from="1768889852534" duration="581000" />
     </task>
     <servers />
   </component>
