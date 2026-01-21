@@ -55,11 +55,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", gender=" + (gender ? "Male" : "Female") +
-                '}';
+        return String.format(
+                "%d -  %s %s, %s",
+                id, name, surname, gender ? "male" : "female"
+        );
     }
 }

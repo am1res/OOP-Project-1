@@ -1,7 +1,12 @@
 package company;
 
+import company.controllers.MotorcycleController;
 import company.controllers.UserController;
 import company.controllers.CarController;
+import company.controllers.BusController;
+import company.controllers.TruckController;
+import company.controllers.SpecialVehicleController;
+
 import company.controllers.interfaces.IUserController;
 import company.data.interfaces.IDB;
 import company.repositories.interfaces.*;
@@ -16,6 +21,11 @@ public class MyApplication {
     // Controllers
     private final UserController userController;
     private final CarController carController;
+    private final MotorcycleController MotorcycleController;
+    private final BusController busController;
+    private final TruckController truckController;
+    private final SpecialVehicleController specialVehicleController;
+
 
     // Repositories
     private final IUserRepository userRepo;
@@ -45,6 +55,11 @@ public class MyApplication {
         // Initialize controllers
         this.userController = new UserController(userRepo);
         this.carController = new CarController(carRepo);
+        this.MotorcycleController = new MotorcycleController(motorcycleRepo);
+        this.truckController = new TruckController(truckRepo);
+        this.busController = new BusController(busRepo);
+        this.specialVehicleController = new SpecialVehicleController(specialVehicleRepo);
+
     }
 
     private void mainMenu() {
@@ -249,28 +264,360 @@ public class MyApplication {
     }
 
     // ==================== MOTORCYCLE MANAGEMENT ====================
+    // ==================== MOTORCYCLE MANAGEMENT ====================
     private void motorcycleManagementMenu() {
-        System.out.println("\n--- 🏍️  MOTORCYCLE MANAGEMENT ---");
-        System.out.println("Coming soon!");
+        boolean inMenu = true;
+        while (inMenu) {
+            System.out.println("\n--- 🏍️  MOTORCYCLE MANAGEMENT ---");
+            System.out.println("1. ➕ Add Motorcycle");
+            System.out.println("2. 🔍 Get Motorcycle by ID");
+            System.out.println("3. 📋 Get All Motorcycles");
+            System.out.println("4. ✏️  Update Motorcycle");
+            System.out.println("5. 🗑️  Delete Motorcycle");
+            System.out.println("0. 🔙 Back");
+            System.out.print("Enter choice: ");
+
+            try {
+                int choice = getIntInput();
+                switch (choice) {
+                    case 1:
+                        addMotorcycleMenu();
+                        break;
+                    case 2:
+                        getMotorcycleByIdMenu();
+                        break;
+                    case 3:
+                        getAllMotorcyclesMenu();
+                        break;
+                    case 4:
+                        updateMotorcycleMenu();
+                        break;
+                    case 5:
+                        deleteMotorcycleMenu();
+                        break;
+                    case 0:
+                        inMenu = false;
+                        break;
+                    default:
+                        System.out.println("❌ Invalid option.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("❌ Invalid input.");
+                scanner.nextLine();
+            }
+        }
     }
+
+    private void addMotorcycleMenu() {
+        scanner.nextLine();
+        System.out.print("\nEnter brand: ");
+        String brand = scanner.nextLine().trim();
+        System.out.print("Enter model: ");
+        String model = scanner.nextLine().trim();
+        System.out.print("Enter year: ");
+        int year = getIntInput();
+        System.out.print("Enter price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(MotorcycleController.addMotorcycle(brand, model, year, price, available));
+    }
+
+    private void getMotorcycleByIdMenu() {
+        System.out.print("\nEnter motorcycle ID: ");
+        int id = getIntInput();
+        System.out.println(MotorcycleController.getMotorcycleById(id));
+    }
+
+    private void getAllMotorcyclesMenu() {
+        System.out.println(MotorcycleController.getAllMotorcycles());
+    }
+
+    private void updateMotorcycleMenu() {
+        System.out.print("\nEnter motorcycle ID to update: ");
+        int id = getIntInput();
+        System.out.print("Enter new price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(MotorcycleController.updateMotorcycle(id, price, available));
+    }
+
+    private void deleteMotorcycleMenu() {
+        System.out.print("\nEnter motorcycle ID to delete: ");
+        int id = getIntInput();
+        System.out.println(MotorcycleController.deleteMotorcycle(id));
+    }
+
 
     // ==================== BUS MANAGEMENT ====================
+    // ==================== BUS MANAGEMENT ====================
     private void busManagementMenu() {
-        System.out.println("\n--- 🚌 BUS MANAGEMENT ---");
-        System.out.println("Coming soon!");
+        boolean inMenu = true;
+        while (inMenu) {
+            System.out.println("\n--- 🚌 BUS MANAGEMENT ---");
+            System.out.println("1. ➕ Add Bus");
+            System.out.println("2. 🔍 Get Bus by ID");
+            System.out.println("3. 📋 Get All Buses");
+            System.out.println("4. ✏️  Update Bus");
+            System.out.println("5. 🗑️  Delete Bus");
+            System.out.println("0. 🔙 Back");
+            System.out.print("Enter choice: ");
+
+            try {
+                int choice = getIntInput();
+                switch (choice) {
+                    case 1:
+                        addBusMenu();
+                        break;
+                    case 2:
+                        getBusByIdMenu();
+                        break;
+                    case 3:
+                        getAllBusesMenu();
+                        break;
+                    case 4:
+                        updateBusMenu();
+                        break;
+                    case 5:
+                        deleteBusMenu();
+                        break;
+                    case 0:
+                        inMenu = false;
+                        break;
+                    default:
+                        System.out.println("❌ Invalid option.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("❌ Invalid input.");
+                scanner.nextLine();
+            }
+        }
     }
+
+    private void addBusMenu() {
+        scanner.nextLine();
+        System.out.print("\nEnter brand: ");
+        String brand = scanner.nextLine().trim();
+        System.out.print("Enter model: ");
+        String model = scanner.nextLine().trim();
+        System.out.print("Enter year: ");
+        int year = getIntInput();
+        System.out.print("Enter price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(busController.addBus(brand, model, year, price, available));
+    }
+
+    private void getBusByIdMenu() {
+        System.out.print("\nEnter bus ID: ");
+        int id = getIntInput();
+        System.out.println(busController.getBusById(id));
+    }
+
+    private void getAllBusesMenu() {
+        System.out.println(busController.getAllBuses());
+    }
+
+    private void updateBusMenu() {
+        System.out.print("\nEnter bus ID to update: ");
+        int id = getIntInput();
+        System.out.print("Enter new price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(busController.updateBus(id, price, available));
+    }
+
+    private void deleteBusMenu() {
+        System.out.print("\nEnter bus ID to delete: ");
+        int id = getIntInput();
+        System.out.println(busController.deleteBus(id));
+    }
+
 
     // ==================== TRUCK MANAGEMENT ====================
+    // ==================== TRUCK MANAGEMENT ====================
     private void truckManagementMenu() {
-        System.out.println("\n--- 🚚 TRUCK MANAGEMENT ---");
-        System.out.println("Coming soon!");
+        boolean inMenu = true;
+        while (inMenu) {
+            System.out.println("\n--- 🚚 TRUCK MANAGEMENT ---");
+            System.out.println("1. ➕ Add Truck");
+            System.out.println("2. 🔍 Get Truck by ID");
+            System.out.println("3. 📋 Get All Trucks");
+            System.out.println("4. ✏️  Update Truck");
+            System.out.println("5. 🗑️  Delete Truck");
+            System.out.println("0. 🔙 Back");
+            System.out.print("Enter choice: ");
+
+            try {
+                int choice = getIntInput();
+                switch (choice) {
+                    case 1:
+                        addTruckMenu();
+                        break;
+                    case 2:
+                        getTruckByIdMenu();
+                        break;
+                    case 3:
+                        getAllTrucksMenu();
+                        break;
+                    case 4:
+                        updateTruckMenu();
+                        break;
+                    case 5:
+                        deleteTruckMenu();
+                        break;
+                    case 0:
+                        inMenu = false;
+                        break;
+                    default:
+                        System.out.println("❌ Invalid option.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("❌ Invalid input.");
+                scanner.nextLine();
+            }
+        }
     }
 
+    private void addTruckMenu() {
+        scanner.nextLine();
+        System.out.print("\nEnter brand: ");
+        String brand = scanner.nextLine().trim();
+        System.out.print("Enter model: ");
+        String model = scanner.nextLine().trim();
+        System.out.print("Enter year: ");
+        int year = getIntInput();
+        System.out.print("Enter price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(truckController.addTruck(brand, model, year, price, available));
+    }
+
+    private void getTruckByIdMenu() {
+        System.out.print("\nEnter truck ID: ");
+        int id = getIntInput();
+        System.out.println(truckController.getTruckById(id));
+    }
+
+    private void getAllTrucksMenu() {
+        System.out.println(truckController.getAllTrucks());
+    }
+
+    private void updateTruckMenu() {
+        System.out.print("\nEnter truck ID to update: ");
+        int id = getIntInput();
+        System.out.print("Enter new price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(truckController.updateTruck(id, price, available));
+    }
+
+    private void deleteTruckMenu() {
+        System.out.print("\nEnter truck ID to delete: ");
+        int id = getIntInput();
+        System.out.println(truckController.deleteTruck(id));
+    }
+
+
+    // ==================== SPECIAL VEHICLE MANAGEMENT ====================
     // ==================== SPECIAL VEHICLE MANAGEMENT ====================
     private void specialVehicleManagementMenu() {
-        System.out.println("\n--- ⚙️  SPECIAL VEHICLE MANAGEMENT ---");
-        System.out.println("Coming soon!");
+        boolean inMenu = true;
+        while (inMenu) {
+            System.out.println("\n--- ⚙️  SPECIAL VEHICLE MANAGEMENT ---");
+            System.out.println("1. ➕ Add Special Vehicle");
+            System.out.println("2. 🔍 Get Special Vehicle by ID");
+            System.out.println("3. 📋 Get All Special Vehicles");
+            System.out.println("4. ✏️  Update Special Vehicle");
+            System.out.println("5. 🗑️  Delete Special Vehicle");
+            System.out.println("0. 🔙 Back");
+            System.out.print("Enter choice: ");
+
+            try {
+                int choice = getIntInput();
+                switch (choice) {
+                    case 1:
+                        addSpecialVehicleMenu();
+                        break;
+                    case 2:
+                        getSpecialVehicleByIdMenu();
+                        break;
+                    case 3:
+                        getAllSpecialVehiclesMenu();
+                        break;
+                    case 4:
+                        updateSpecialVehicleMenu();
+                        break;
+                    case 5:
+                        deleteSpecialVehicleMenu();
+                        break;
+                    case 0:
+                        inMenu = false;
+                        break;
+                    default:
+                        System.out.println("❌ Invalid option.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("❌ Invalid input.");
+                scanner.nextLine();
+            }
+        }
     }
+
+    private void addSpecialVehicleMenu() {
+        scanner.nextLine();
+        System.out.print("\nEnter brand: ");
+        String brand = scanner.nextLine().trim();
+        System.out.print("Enter model: ");
+        String model = scanner.nextLine().trim();
+        System.out.print("Enter year: ");
+        int year = getIntInput();
+        System.out.print("Enter price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(specialVehicleController.addSpecialVehicle(brand, model, year, price, available));
+    }
+
+    private void getSpecialVehicleByIdMenu() {
+        System.out.print("\nEnter special vehicle ID: ");
+        int id = getIntInput();
+        System.out.println(specialVehicleController.getSpecialVehicleById(id));
+    }
+
+    private void getAllSpecialVehiclesMenu() {
+        System.out.println(specialVehicleController.getAllSpecialVehicles());
+    }
+
+    private void updateSpecialVehicleMenu() {
+        System.out.print("\nEnter special vehicle ID to update: ");
+        int id = getIntInput();
+        System.out.print("Enter new price: ");
+        double price = getDoubleInput();
+        System.out.print("Is available? (true/false): ");
+        boolean available = getBooleanInput();
+
+        System.out.println(specialVehicleController.updateSpecialVehicle(id, price, available));
+    }
+
+    private void deleteSpecialVehicleMenu() {
+        System.out.print("\nEnter special vehicle ID to delete: ");
+        int id = getIntInput();
+        System.out.println(specialVehicleController.deleteSpecialVehicle(id));
+    }
+
 
     // ==================== HELPER METHODS ====================
     private int getIntInput() {

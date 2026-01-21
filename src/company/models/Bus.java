@@ -23,4 +23,12 @@ public class Bus {
     public int getYear() { return year; }
     public double getPrice() { return price; }
     public boolean isAvailable() { return isAvailable; }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "%d %s %s, %d year, $%.2f, available=%s",
+                id, brand, model, year, price, isAvailable
+        );
+    }
 }
