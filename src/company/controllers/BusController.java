@@ -32,6 +32,28 @@ public class BusController {
         return response.toString();
     }
 
+    // NEW: Sorted by price
+    public String getAllBusesSortedByPrice() {
+        List<Bus> buses = repo.getAllSortedByPrice();
+        if (buses == null || buses.isEmpty()) return "❌ No buses found.";
+        StringBuilder response = new StringBuilder("✅ Buses (Sorted by Price ASC):\n");
+        for (Bus bus : buses) {
+            response.append("   ").append(bus.toString()).append("\n");
+        }
+        return response.toString();
+    }
+
+    // NEW: Sorted by year
+    public String getAllBusesSortedByYear() {
+        List<Bus> buses = repo.getAllSortedByYear();
+        if (buses == null || buses.isEmpty()) return "❌ No buses found.";
+        StringBuilder response = new StringBuilder("✅ Buses (Sorted by Year DESC):\n");
+        for (Bus bus : buses) {
+            response.append("   ").append(bus.toString()).append("\n");
+        }
+        return response.toString();
+    }
+
     public String updateBus(int id, double price, boolean available) {
         Bus bus = repo.getById(id);
         if (bus == null) return "❌ Bus not found!";

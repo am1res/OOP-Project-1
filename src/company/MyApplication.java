@@ -124,8 +124,9 @@ public class MyApplication {
         while (inMenu) {
             System.out.println("\n--- 👤 USER MANAGEMENT ---");
             System.out.println("1. ➕ Create User");
-            System.out.println("2. 🔍 Get User by ID");
-            System.out.println("3. 📋 Get All Users");
+            System.out.println("2. 🔐 Login");
+            System.out.println("3. 🔍 Get User by ID");
+            System.out.println("4. 📋 Get All Users");
             System.out.println("0. 🔙 Back");
             System.out.print("Enter choice: ");
 
@@ -136,7 +137,7 @@ public class MyApplication {
                         createUserMenu();
                         break;
                     case 2:
-                        getUserByIdMenu();
+                        loginMenu();
                         break;
                     case 3:
                         getAllUsersMenu();
@@ -154,23 +155,39 @@ public class MyApplication {
         }
     }
 
+
     private void createUserMenu() {
-        scanner.nextLine(); // consume newline
+        scanner.nextLine();
         System.out.print("\nEnter name: ");
         String name = scanner.nextLine().trim();
         System.out.print("Enter surname: ");
         String surname = scanner.nextLine().trim();
-        System.out.print("Enter gender (male/female): ");
-        String gender = scanner.nextLine().trim();
+        System.out.print("Gender (true=male/false=female): ");
+        boolean gender = getBooleanInput();
+        System.out.print("Enter login: ");
+        String login = scanner.nextLine().trim();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine().trim();
 
-        System.out.println(userController.createUser(name, surname, gender));
+        // Updated controller call
+        System.out.println(userController.register(name, surname, login, password, gender));
     }
 
-    private void getUserByIdMenu() {
+    private void loginMenu() {
+        scanner.nextLine();
+        System.out.print("\nEnter login: ");
+        String login = scanner.nextLine().trim();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine().trim();
+
+        System.out.println(userController.login(login, password));
+    }
+
+   /* private void getUserByIdMenu() {
         System.out.print("\nEnter user ID: ");
         int id = getIntInput();
         System.out.println(userController.getUser(id));
-    }
+    }*/
 
     private void getAllUsersMenu() {
         System.out.println(userController.getAllUsers());
@@ -361,8 +378,10 @@ public class MyApplication {
             System.out.println("1. ➕ Add Bus");
             System.out.println("2. 🔍 Get Bus by ID");
             System.out.println("3. 📋 Get All Buses");
-            System.out.println("4. ✏️  Update Bus");
-            System.out.println("5. 🗑️  Delete Bus");
+            System.out.println("4. 💰 Get All Sorted by Price");
+            System.out.println("5. 📅 Get All Sorted by Year");
+            System.out.println("6. ✏️  Update Bus");
+            System.out.println("7. 🗑️  Delete Bus");
             System.out.println("0. 🔙 Back");
             System.out.print("Enter choice: ");
 
@@ -379,9 +398,15 @@ public class MyApplication {
                         getAllBusesMenu();
                         break;
                     case 4:
-                        updateBusMenu();
+                        getAllBusesSortedByPriceMenu();
                         break;
                     case 5:
+                        getAllBusesSortedByYearMenu();
+                        break;
+                    case 6:
+                        updateBusMenu();
+                        break;
+                    case 7:
                         deleteBusMenu();
                         break;
                     case 0:
@@ -396,6 +421,7 @@ public class MyApplication {
             }
         }
     }
+
 
     private void addBusMenu() {
         scanner.nextLine();
@@ -439,6 +465,15 @@ public class MyApplication {
         int id = getIntInput();
         System.out.println(busController.deleteBus(id));
     }
+    private void getAllBusesSortedByPriceMenu() {
+        System.out.println(busController.getAllBusesSortedByPrice());
+    }
+
+    private void getAllBusesSortedByYearMenu() {
+        System.out.println(busController.getAllBusesSortedByYear());
+    }
+
+
 
 
     // ==================== TRUCK MANAGEMENT ====================

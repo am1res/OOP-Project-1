@@ -1,6 +1,8 @@
 package company.repositories.interfaces;
 
 import company.models.Bus;
+import company.models.Car;
+
 import java.util.List;
 
 public interface IBusRepository {
@@ -9,4 +11,6 @@ public interface IBusRepository {
     Bus getById(int id);
     boolean update(Bus bus);
     boolean delete(int id);
+    List<Bus> getAllSortedByPrice();
+    List<Bus> getAllSortedByYear();
 }

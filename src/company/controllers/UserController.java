@@ -1,41 +1,49 @@
 package company.controllers;
 
 import company.models.User;
-import company.controllers.interfaces.IUserController;
 import company.repositories.interfaces.IUserRepository;
 
 import java.util.List;
 
-public class UserController implements IUserController {
+public class UserController {
     private final IUserRepository repo;
 
-    public UserController(IUserRepository repo) { // Dependency Injection
+    public UserController(IUserRepository repo) {
         this.repo = repo;
     }
 
-    public String createUser(String name, String surname, String gender) {
-        boolean male = gender.equalsIgnoreCase("male");
-        User user = new User(name, surname, male);
+    // Метод для входа
+    public String login(String login, String password) {
+        User user = repo.login(login, password);
+        if (user == null) {
+            return "❌ Error, invalid login or password";
+        }
+        return "✅ Welcome, " + user.getName() + " " + user.getSurname() + "!";
+    }
 
+
+    public String register(String name, String surname, String login, String password, boolean gender) {
+        User user = new User(0, name, surname,true, login, password);
         boolean created = repo.createUser(user);
 
-        return (created ? "User was created!" : "User creation was failed!");
+        return (created) ? "✅ The user was created successfully" : "❌ Error during registration!";
     }
 
-    public String getUser(int id) {
-        User user = repo.getUser(id);
-
-        return (user == null ? "User was not found!" : user.toString());
-    }
 
     public String getAllUsers() {
         List<User> users = repo.getAllUsers();
-
-        StringBuilder response = new StringBuilder();
-        for (User user : users) {
-            response.append(user.toString()).append("\n");
+        if (users == null || users.isEmpty()) {
+            return "❌ No users found.";
         }
 
+        StringBuilder response = new StringBuilder("📋 Registered Users List:\n");
+        for (User user : users) {
+            response.append("   ID: ").append(user.getId())
+                    .append(" | Name: ").append(user.getName())
+                    .append(" ").append(user.getSurname())
+                    .append(" | Login: ").append(user.getLogin())
+                    .append("\n");
+        }
         return response.toString();
     }
 }

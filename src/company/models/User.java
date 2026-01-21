@@ -5,6 +5,8 @@ public class User {
     private String name;
     private String surname;
     private boolean gender;
+    private String login;
+    private String password;
 
     public User() {
 
@@ -16,8 +18,13 @@ public class User {
         setGender(gender);
     }
 
-    public User(int id, String name, String surname, boolean gender) {
-        this(name, surname, gender);
+    public User(int id, String name, String surname,boolean gender, String login, String password) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+        this.login = login;
+        this.password = password;
         setId(id);
     }
 
@@ -52,6 +59,19 @@ public class User {
     public void setGender(boolean gender) {
         this.gender = gender;
     }
+    public String getLogin() {
+        return login;
+    }
+    public void setLogin(String login) {
+        this.login = login;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 
     @Override
     public String toString() {
