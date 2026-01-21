@@ -26,21 +26,37 @@ public class SpecialVehicleRepository implements ISpecialVehicleRepository {
         } catch (SQLException e) { return false; }
     }
 
+    private List<SpecialVehicle> getSpecialVehiclesByQuery(String sql) {
+        try (Connection con = db.getConnection();
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+            List<SpecialVehicle> vehicles = new ArrayList<>();
+            while (rs.next()) {
+                vehicles.add(new SpecialVehicle(
+                        rs.getInt("id"), rs.getString("brand"), rs.getString("model"),
+                        rs.getInt("year"), rs.getDouble("price"), rs.getBoolean("is_available")
+                ));
+            }
+            return vehicles;
+        } catch (SQLException e) {
+            System.out.println("SQL error: " + e.getMessage());
+            return null;
+        }
+    }
+
     @Override
     public List<SpecialVehicle> getAll() {
-        String sql = "SELECT * FROM special_vehicles";
-        try (Connection con = db.getConnection(); Statement st = con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
-            List<SpecialVehicle> list = new ArrayList<>();
-            while (rs.next()) {
-                list.add(new SpecialVehicle(rs.getInt("id"),
-                        rs.getString("brand"),
-                        rs.getString("model"),
-                        rs.getInt("year"),
-                        rs.getDouble("price"),
-                        rs.getBoolean("is_available")));
-            }
-            return list;
-        } catch (SQLException e) { return null; }
+        return getSpecialVehiclesByQuery("SELECT * FROM special_vehicles");
+    }
+
+    @Override
+    public List<SpecialVehicle> getAllSortedByPrice() {
+        return getSpecialVehiclesByQuery("SELECT * FROM special_vehicles ORDER BY price ASC");
+    }
+
+    @Override
+    public List<SpecialVehicle> getAllSortedByYear() {
+        return getSpecialVehiclesByQuery("SELECT * FROM special_vehicles ORDER BY year DESC");
     }
 
     @Override

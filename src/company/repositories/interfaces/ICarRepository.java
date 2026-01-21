@@ -9,4 +9,6 @@ public interface ICarRepository {
     Car getById(int id);
     boolean update(Car car);
     boolean delete(int id);
+    List<Car> getAllSortedByPrice();
+    List<Car> getAllSortedByYear();
 }

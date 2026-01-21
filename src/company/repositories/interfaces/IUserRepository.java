@@ -1,11 +1,11 @@
 package company.repositories.interfaces;
 
 import company.models.User;
-
 import java.util.List;
 
 public interface IUserRepository {
-    boolean createUser(User user);
-    User getUser(int id);
-    List<User> getAllUsers();
+    User login(String login, String password); // Авторизация
+    boolean createUser(User user);             // Регистрация
+    User getUser(int id);                      // Поиск по ID
+    List<User> getAllUsers();                  // Список всех
 }

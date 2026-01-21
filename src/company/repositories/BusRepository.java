@@ -2,6 +2,7 @@ package company.repositories;
 
 import company.data.interfaces.IDB;
 import company.models.Bus;
+import company.models.Car;
 import company.repositories.interfaces.IBusRepository;
 import java.sql.*;
 import java.util.ArrayList;
@@ -34,27 +35,44 @@ public class BusRepository implements IBusRepository {
         return false;
     }
 
-    @Override
-    public List<Bus> getAll() {
-        String sql = "SELECT * FROM cars";
+    private List<Bus> getBusesByQuery(String sql) {
         try (Connection con = db.getConnection();
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
             List<Bus> cars = new ArrayList<>();
             while (rs.next()) {
-                cars.add(new Bus(rs.getInt("id"),
+                cars.add(new Bus(
+                        rs.getInt("id"),
                         rs.getString("brand"),
                         rs.getString("model"),
                         rs.getInt("year"),
                         rs.getDouble("price"),
-                        rs.getBoolean("is_available")));
+                        rs.getBoolean("is_available")
+                ));
             }
             return cars;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("SQL error: " + e.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public List<Bus> getAll() {
+        return getBusesByQuery("SELECT * FROM buses");
+    }
+
+    @Override
+    public List<Bus> getAllSortedByPrice() {
+        String sql = "SELECT * FROM buses ORDER BY price ASC";
+        return getBusesByQuery(sql);
+    }
+
+    @Override
+    public List<Bus> getAllSortedByYear() {
+        String sql = "SELECT * FROM buses ORDER BY year DESC";
+        return getBusesByQuery(sql);
     }
 
     @Override

@@ -3,6 +3,9 @@ package company.controllers;
 import company.models.*;
 import company.repositories.interfaces.*;
 
+import company.models.Car;
+import company.repositories.interfaces.ICarRepository;
+
 import java.util.List;
 
 public class CarController {
@@ -22,10 +25,23 @@ public class CarController {
         return car == null ? "❌ Car not found!" : "✅ " + car.toString();
     }
 
+
     public String getAllCars() {
-        List<Car> cars = repo.getAll();
+        return formatCarList(repo.getAll(), "All Cars");
+    }
+
+    public String getAllCarsSortedByPrice() {
+        return formatCarList(repo.getAllSortedByPrice(), "Cars sorted by Price (Cheapest first)");
+    }
+
+    public String getAllCarsSortedByYear() {
+        return formatCarList(repo.getAllSortedByYear(), "Cars sorted by Year (Newest first)");
+    }
+
+    private String formatCarList(List<Car> cars, String title) {
         if (cars == null || cars.isEmpty()) return "❌ No cars found.";
-        StringBuilder response = new StringBuilder("✅ All Cars:\n");
+
+        StringBuilder response = new StringBuilder("✅ " + title + ":\n");
         for (Car car : cars) {
             response.append("   ").append(car.toString()).append("\n");
         }
@@ -33,13 +49,11 @@ public class CarController {
     }
 
     public String updateCar(int id, double price, boolean available) {
-        Car car = repo.getById(id);
-        if (car == null) return "❌ Car not found!";
-        Car updated = new Car(id, car.getBrand(), car.getModel(), car.getYear(), price, available);
-        return repo.update(updated) ? "✅ Car updated successfully!" : "❌ Failed to update car.";
+        Car car = new Car(id, "", "", 0, price, available);
+        return repo.update(car) ? "✅ Car updated!" : "❌ Update failed.";
     }
 
     public String deleteCar(int id) {
-        return repo.delete(id) ? "✅ Car deleted successfully!" : "❌ Failed to delete car.";
+        return repo.delete(id) ? "✅ Car deleted!" : "❌ Delete failed.";
     }
 }

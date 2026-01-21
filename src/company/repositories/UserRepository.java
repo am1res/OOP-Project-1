@@ -9,85 +9,116 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepository implements IUserRepository {
-    private final IDB db;  // Dependency Injection
+    private final IDB db;
 
     public UserRepository(IDB db) {
         this.db = db;
     }
 
     @Override
-    public boolean createUser(User user) {
+    public User login(String login, String password) {
         Connection con = null;
-
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO users(name,surname,gender) VALUES (?,?,?)";
+            String sql = "SELECT id, name, surname, login, password FROM users WHERE login=? AND password=?";
+            PreparedStatement st = con.prepareStatement(sql);
+
+            st.setString(1, login);
+            st.setString(2, password);
+
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return new User(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("surname"),
+                        rs.getString("login"),
+                        rs.getString("password")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("Ошибка при входе: " + e.getMessage());
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean createUser(User user) {
+        Connection con = null;
+        try {
+            con = db.getConnection();
+            String sql = "INSERT INTO users(name, surname, login, password) VALUES (?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, user.getName());
             st.setString(2, user.getSurname());
-            st.setBoolean(3, user.getGender());
+            st.setString(3, user.getLogin());
+            st.setString(4, user.getPassword());
 
-            st.execute();
-
+            st.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
-
         return false;
     }
 
     @Override
     public User getUser(int id) {
         Connection con = null;
-
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,surname,gender FROM users WHERE id=?";
+            String sql = "SELECT id, name, surname, login, password FROM users WHERE id=?";
             PreparedStatement st = con.prepareStatement(sql);
-
             st.setInt(1, id);
 
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                return new User(rs.getInt("id"),
+                return new User(
+                        rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
-                        rs.getBoolean("gender"));
+                        rs.getString("login"),
+                        rs.getString("password")
+                );
             }
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("Search error: " + e.getMessage());
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
-
         return null;
     }
 
     @Override
     public List<User> getAllUsers() {
         Connection con = null;
-
+        List<User> users = new ArrayList<>();
         try {
             con = db.getConnection();
-            String sql = "SELECT id,name,surname,gender FROM users";
+            String sql = "SELECT id, name, surname, gender, login, password FROM users";
             Statement st = con.createStatement();
-
             ResultSet rs = st.executeQuery(sql);
-            List<User> users = new ArrayList<>();
+
             while (rs.next()) {
-                User user = new User(rs.getInt("id"),
+                User user = new User(
+                        rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
-                        rs.getBoolean("gender"));
-
+                        rs.getString("login"),
+                        rs.getString("password")
+                );
                 users.add(user);
             }
-
-            return users;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }
-
-        return null;
+        return users;
     }
 }

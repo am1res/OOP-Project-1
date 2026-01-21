@@ -28,24 +28,37 @@ public class TruckRepository implements ITruckRepository {
         return false;
     }
 
-    @Override
-    public List<Truck> getAll() {
-        String sql = "SELECT * FROM trucks";
+    private List<Truck> getTrucksByQuery(String sql) {
         try (Connection con = db.getConnection();
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             List<Truck> trucks = new ArrayList<>();
             while (rs.next()) {
-                trucks.add(new Truck(rs.getInt("id"),
-                        rs.getString("brand"),
-                        rs.getString("model"),
-                        rs.getInt("year"),
-                        rs.getDouble("price"),
-                        rs.getBoolean("is_available")));
+                trucks.add(new Truck(
+                        rs.getInt("id"), rs.getString("brand"), rs.getString("model"),
+                        rs.getInt("year"), rs.getDouble("price"), rs.getBoolean("is_available")
+                ));
             }
             return trucks;
-        } catch (SQLException e) { System.out.println("sql error: " + e.getMessage()); }
+        } catch (SQLException e) {
+            System.out.println("SQL error: " + e.getMessage());
+        }
         return null;
+    }
+
+    @Override
+    public List<Truck> getAll() {
+        return getTrucksByQuery("SELECT * FROM trucks");
+    }
+
+    @Override
+    public List<Truck> getAllSortedByPrice() {
+        return getTrucksByQuery("SELECT * FROM trucks ORDER BY price ASC");
+    }
+
+    @Override
+    public List<Truck> getAllSortedByYear() {
+        return getTrucksByQuery("SELECT * FROM trucks ORDER BY year DESC");
     }
 
     @Override

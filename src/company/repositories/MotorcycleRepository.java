@@ -1,6 +1,7 @@
 package company.repositories;
 
 import company.data.interfaces.IDB;
+import company.models.Car;
 import company.models.Motorcycle; //
 import company.repositories.interfaces.IMotorcycleRepository;
 
@@ -28,24 +29,37 @@ public class MotorcycleRepository implements IMotorcycleRepository {
         return false;
     }
 
-    @Override
-    public List<Motorcycle> getAll() {
-        String sql = "SELECT * FROM motorcycles";
+    private List<Motorcycle> getMotorcyclesByQuery(String sql) {
         try (Connection con = db.getConnection();
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
-
-            List<Motorcycle> motos = new ArrayList<>();
+            List<Motorcycle> list = new ArrayList<>();
             while (rs.next()) {
-                motos.add(new Motorcycle(rs.getInt("id"),
-                        rs.getString("brand"),
-                        rs.getString("model"),
-                        rs.getInt("year"),
-                        rs.getDouble("price"),
-                        rs.getBoolean("is_available")));
+                list.add(new Motorcycle(
+                        rs.getInt("id"), rs.getString("brand"), rs.getString("model"),
+                        rs.getInt("year"), rs.getDouble("price"), rs.getBoolean("is_available")
+                ));
             }
-            return motos;
-        } catch (SQLException e) { return null; }
+            return list;
+        } catch (SQLException e) {
+            System.out.println("SQL error: " + e.getMessage());
+        }
+        return null;
+    }
+    @Override
+    public List<Motorcycle> getAll() {
+        return getMotorcyclesByQuery("SELECT * FROM motorcycles");
+    }
+
+
+    @Override
+    public List<Motorcycle> getAllSortedByPrice() {
+        return getMotorcyclesByQuery("SELECT * FROM motorcycles ORDER BY price ASC");
+    }
+
+    @Override
+    public List<Motorcycle> getAllSortedByYear() {
+        return getMotorcyclesByQuery("SELECT * FROM motorcycles ORDER BY year DESC");
     }
 
     @Override

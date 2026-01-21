@@ -29,32 +29,50 @@ public class CarRepository implements ICarRepository {
             st.execute();
             return true;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("SQL error: " + e.getMessage());
         }
         return false;
     }
 
-    @Override
-    public List<Car> getAll() {
-        String sql = "SELECT * FROM cars";
+
+    private List<Car> getCarsByQuery(String sql) {
         try (Connection con = db.getConnection();
              Statement st = con.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
 
             List<Car> cars = new ArrayList<>();
             while (rs.next()) {
-                cars.add(new Car(rs.getInt("id"),
+                cars.add(new Car(
+                        rs.getInt("id"),
                         rs.getString("brand"),
                         rs.getString("model"),
                         rs.getInt("year"),
                         rs.getDouble("price"),
-                        rs.getBoolean("is_available")));
+                        rs.getBoolean("is_available")
+                ));
             }
-   return cars;
+            return cars;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("SQL error: " + e.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public List<Car> getAll() {
+        return getCarsByQuery("SELECT * FROM cars");
+    }
+
+    @Override
+    public List<Car> getAllSortedByPrice() {
+        String sql = "SELECT * FROM cars ORDER BY price ASC";
+        return getCarsByQuery(sql);
+    }
+
+    @Override
+    public List<Car> getAllSortedByYear() {
+        String sql = "SELECT * FROM cars ORDER BY year DESC";
+        return getCarsByQuery(sql);
     }
 
     @Override
@@ -73,7 +91,7 @@ public class CarRepository implements ICarRepository {
                         rs.getBoolean("is_available"));
             }
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("SQL error: " + e.getMessage());
         }
         return null;
     }
@@ -88,7 +106,7 @@ public class CarRepository implements ICarRepository {
             st.setInt(3, car.getId());
             return st.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("SQL error: " + e.getMessage());
         }
         return false;
     }
@@ -101,7 +119,7 @@ public class CarRepository implements ICarRepository {
             st.setInt(1, id);
             return st.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.out.println("sql error: " + e.getMessage());
+            System.out.println("SQL error: " + e.getMessage());
         }
         return false;
     }

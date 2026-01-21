@@ -9,4 +9,6 @@ public interface IMotorcycleRepository {
     Motorcycle getById(int id);
     boolean update(Motorcycle motorcycle);
     boolean delete(int id);
+    List<Motorcycle> getAllSortedByPrice();
+    List<Motorcycle> getAllSortedByYear();
 }
