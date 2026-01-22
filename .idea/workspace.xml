@@ -7,19 +7,11 @@
     <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/MyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/controllers/BusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/BusController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/repositories/BusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/BusRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/repositories/interfaces/IBusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IBusRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/repositories/interfaces/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IUserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/company/MyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/MyApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/BusController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/BusController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/SpecialVehicleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/SpecialVehicleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/TruckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/TruckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/BusRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/repositories/BusRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/IBusRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/IBusRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/repositories/UserRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

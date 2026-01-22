@@ -41,6 +41,7 @@ public class UserController {
             response.append("   ID: ").append(user.getId())
                     .append(" | Name: ").append(user.getName())
                     .append(" ").append(user.getSurname())
+                    .append(" ").append(user.getGender())
                     .append(" | Login: ").append(user.getLogin())
                     .append("\n");
         }
