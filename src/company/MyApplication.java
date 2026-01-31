@@ -125,8 +125,7 @@ public class MyApplication {
             System.out.println("\n--- 👤 USER MANAGEMENT ---");
             System.out.println("1. ➕ Create User");
             System.out.println("2. 🔐 Login");
-            System.out.println("3. 🔍 Get User by ID");
-            System.out.println("4. 📋 Get All Users");
+            System.out.println("3. 🔍 Get all users");
             System.out.println("0. 🔙 Back");
             System.out.print("Enter choice: ");
 
