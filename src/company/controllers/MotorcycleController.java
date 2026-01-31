@@ -2,18 +2,27 @@ package company.controllers;
 
 import company.models.*;
 import company.repositories.interfaces.*;
-
 import java.util.List;
 
 public class MotorcycleController {
     private final IMotorcycleRepository repo;
+    private final IUserRepository userRepo;
+    private final ICategoryRepository categoryRepo;
 
-    public MotorcycleController(IMotorcycleRepository repo) {
+    public MotorcycleController(IMotorcycleRepository repo, IUserRepository userRepo, ICategoryRepository categoryRepo) {
         this.repo = repo;
+        this.userRepo = userRepo;
+        this.categoryRepo = categoryRepo;
     }
 
-    public String addMotorcycle(String brand, String model, int year, double price, boolean available) {
-        Motorcycle motorcycle = new Motorcycle(0, brand, model, year, price, available);
+    public String addMotorcycle(int ownerId, int categoryId, String brand, String model, int year, double price, boolean available) {
+        NewUser owner = userRepo.getById(ownerId);
+        if (owner == null) return "❌ Owner not found!";
+
+        Category category = categoryRepo.getById(categoryId);
+        if (category == null) return "❌ Category not found!";
+
+        Motorcycle motorcycle = new Motorcycle(0, owner, category, brand, model, year, price, available);
         return repo.add(motorcycle) ? "✅ Motorcycle added successfully!" : "❌ Failed to add motorcycle.";
     }
 
@@ -26,16 +35,16 @@ public class MotorcycleController {
         List<Motorcycle> motorcycles = repo.getAll();
         if (motorcycles == null || motorcycles.isEmpty()) return "❌ No motorcycles found.";
         StringBuilder response = new StringBuilder("✅ All Motorcycles:\n");
-        for (Motorcycle motorcycle : motorcycles) {
-            response.append("   ").append(motorcycle.toString()).append("\n");
+        for (Motorcycle m : motorcycles) {
+            response.append("   ").append(m.toString()).append("\n");
         }
         return response.toString();
     }
 
     public String updateMotorcycle(int id, double price, boolean available) {
-        Motorcycle motorcycle = repo.getById(id);
-        if (motorcycle == null) return "❌ Motorcycle not found!";
-        Motorcycle updated = new Motorcycle(id, motorcycle.getBrand(), motorcycle.getModel(), motorcycle.getYear(), price, available);
+        Motorcycle m = repo.getById(id);
+        if (m == null) return "❌ Motorcycle not found!";
+        Motorcycle updated = new Motorcycle(id, m.getOwner(), m.getCategory(), m.getBrand(), m.getModel(), m.getYear(), price, available);
         return repo.update(updated) ? "✅ Motorcycle updated successfully!" : "❌ Failed to update motorcycle.";
     }
 

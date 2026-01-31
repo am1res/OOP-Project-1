@@ -16,10 +16,10 @@ public class  Main {
     public static void main(String[] args) {
         try {
             // ===== DATABASE CONFIGURATION =====
-            String dbUrl = "jdbc:postgresql://localhost:5432";
+            String dbUrl = "jdbc:postgresql://localhost:5433";
             String dbUser = "postgres";
             String dbPassword = "0000";
-            String dbName = "kolesakz";
+            String dbName = "kolesa_db";
 
             System.out.println("🔌 Connecting to database...");
             IDB db = new PostgresDB(dbUrl, dbUser, dbPassword, dbName);

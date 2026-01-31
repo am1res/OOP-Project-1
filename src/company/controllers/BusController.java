@@ -2,62 +2,49 @@ package company.controllers;
 
 import company.models.*;
 import company.repositories.interfaces.*;
-
 import java.util.List;
 
 public class BusController {
     private final IBusRepository repo;
+    private final IUserRepository userRepo;
+    private final ICategoryRepository categoryRepo;
 
-    public BusController(IBusRepository repo) {
+    public BusController(IBusRepository repo, IUserRepository userRepo, ICategoryRepository categoryRepo) {
         this.repo = repo;
+        this.userRepo = userRepo;
+        this.categoryRepo = categoryRepo;
     }
 
-    public String addBus(String brand, String model, int year, double price, boolean available) {
-        Bus bus = new Bus(0, brand, model, year, price, available);
+    public String addBus(int ownerId, int categoryId, String brand, String model, int year, double price, boolean available) {
+        NewUser owner = userRepo.getById(ownerId);
+        if (owner == null) return "❌ Owner not found!";
+
+        Category category = categoryRepo.getById(categoryId);
+        if (category == null) return "❌ Category not found!";
+
+        Bus bus = new Bus(0, owner, category, brand, model, year, price, available);
         return repo.add(bus) ? "✅ Bus added successfully!" : "❌ Failed to add bus.";
     }
 
     public String getBusById(int id) {
-        Bus bus = repo.getById(id);
-        return bus == null ? "❌ Bus not found!" : "✅ " + bus.toString();
+        Bus b = repo.getById(id);
+        return b == null ? "❌ Bus not found!" : "✅ " + b.toString();
     }
 
     public String getAllBuses() {
         List<Bus> buses = repo.getAll();
         if (buses == null || buses.isEmpty()) return "❌ No buses found.";
         StringBuilder response = new StringBuilder("✅ All Buses:\n");
-        for (Bus bus : buses) {
-            response.append("   ").append(bus.toString()).append("\n");
-        }
-        return response.toString();
-    }
-
-    // NEW: Sorted by price
-    public String getAllBusesSortedByPrice() {
-        List<Bus> buses = repo.getAllSortedByPrice();
-        if (buses == null || buses.isEmpty()) return "❌ No buses found.";
-        StringBuilder response = new StringBuilder("✅ Buses (Sorted by Price ASC):\n");
-        for (Bus bus : buses) {
-            response.append("   ").append(bus.toString()).append("\n");
-        }
-        return response.toString();
-    }
-
-    // NEW: Sorted by year
-    public String getAllBusesSortedByYear() {
-        List<Bus> buses = repo.getAllSortedByYear();
-        if (buses == null || buses.isEmpty()) return "❌ No buses found.";
-        StringBuilder response = new StringBuilder("✅ Buses (Sorted by Year DESC):\n");
-        for (Bus bus : buses) {
-            response.append("   ").append(bus.toString()).append("\n");
+        for (Bus b : buses) {
+            response.append("   ").append(b.toString()).append("\n");
         }
         return response.toString();
     }
 
     public String updateBus(int id, double price, boolean available) {
-        Bus bus = repo.getById(id);
-        if (bus == null) return "❌ Bus not found!";
-        Bus updated = new Bus(id, bus.getBrand(), bus.getModel(), bus.getYear(), price, available);
+        Bus b = repo.getById(id);
+        if (b == null) return "❌ Bus not found!";
+        Bus updated = new Bus(id, b.getOwner(), b.getCategory(), b.getBrand(), b.getModel(), b.getYear(), price, available);
         return repo.update(updated) ? "✅ Bus updated successfully!" : "❌ Failed to update bus.";
     }
 

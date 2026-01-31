@@ -2,40 +2,49 @@ package company.controllers;
 
 import company.models.*;
 import company.repositories.interfaces.*;
-
 import java.util.List;
 
 public class TruckController {
     private final ITruckRepository repo;
+    private final IUserRepository userRepo;
+    private final ICategoryRepository categoryRepo;
 
-    public TruckController(ITruckRepository repo) {
+    public TruckController(ITruckRepository repo, IUserRepository userRepo, ICategoryRepository categoryRepo) {
         this.repo = repo;
+        this.userRepo = userRepo;
+        this.categoryRepo = categoryRepo;
     }
 
-    public String addTruck(String brand, String model, int year, double price, boolean available) {
-        Truck truck = new Truck(0, brand, model, year, price, available);
+    public String addTruck(int ownerId, int categoryId, String brand, String model, int year, double price, boolean available) {
+        NewUser owner = userRepo.getById(ownerId);
+        if (owner == null) return "❌ Owner not found!";
+
+        Category category = categoryRepo.getById(categoryId);
+        if (category == null) return "❌ Category not found!";
+
+        Truck truck = new Truck(0, owner, category, brand, model, year, price, available);
         return repo.add(truck) ? "✅ Truck added successfully!" : "❌ Failed to add truck.";
     }
 
     public String getTruckById(int id) {
-        Truck truck = repo.getById(id);
-        return truck == null ? "❌ Truck not found!" : "✅ " + truck.toString();
+        Truck t = repo.getById(id);
+        return t == null ? "❌ Truck not found!" : "✅ " + t.toString();
     }
 
     public String getAllTrucks() {
         List<Truck> trucks = repo.getAll();
         if (trucks == null || trucks.isEmpty()) return "❌ No trucks found.";
         StringBuilder response = new StringBuilder("✅ All Trucks:\n");
-        for (Truck truck : trucks) {
-            response.append("   ").append(truck.toString()).append("\n");
+        for (Truck t : trucks) {
+            response.append("   ").append(t.toString()).append("\n");
         }
         return response.toString();
     }
 
     public String updateTruck(int id, double price, boolean available) {
-        Truck truck = repo.getById(id);
-        if (truck == null) return "❌ Truck not found!";
-        Truck updated = new Truck(id, truck.getBrand(), truck.getModel(), truck.getYear(), price, available);
+        Truck t = repo.getById(id);
+        if (t == null) return "❌ Truck not found!";
+        Truck updated = new Truck(id, t.getOwner(), t.getCategory(), t.getBrand(), t.getModel(), t.getYear(), price, available);
         return repo.update(updated) ? "✅ Truck updated successfully!" : "❌ Failed to update truck.";
     }
 
