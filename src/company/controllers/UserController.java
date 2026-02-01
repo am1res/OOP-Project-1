@@ -23,7 +23,7 @@ public class UserController {
 
 
     public String register(String name, String surname, String login, String password, boolean gender) {
-        User user = new User(0, name, surname, login, password);
+        User user = new User(0, name, surname,true, login, password);
         boolean created = repo.createUser(user);
 
         return (created) ? "✅ The user was created successfully" : "❌ Error during registration!";

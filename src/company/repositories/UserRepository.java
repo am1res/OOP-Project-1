@@ -20,7 +20,7 @@ public class UserRepository implements IUserRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, name, surname, login, password FROM users WHERE login=? AND password=?";
+            String sql = "SELECT id, name, surname, login, gender, password FROM users WHERE login=? AND password=?";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, login);
@@ -32,6 +32,7 @@ public class UserRepository implements IUserRepository {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
+                        rs.getBoolean("gender"),
                         rs.getString("login"),
                         rs.getString("password")
                 );
@@ -49,13 +50,14 @@ public class UserRepository implements IUserRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "INSERT INTO users(name, surname, login, password) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO users(name, surname,gender, login, password) VALUES (?,?,?,?,?)";
             PreparedStatement st = con.prepareStatement(sql);
 
             st.setString(1, user.getName());
             st.setString(2, user.getSurname());
-            st.setString(3, user.getLogin());
-            st.setString(4, user.getPassword());
+            st.setBoolean(3, user.getGender());
+            st.setString(4, user.getLogin());
+            st.setString(5, user.getPassword());
 
             st.executeUpdate();
             return true;
@@ -72,7 +74,7 @@ public class UserRepository implements IUserRepository {
         Connection con = null;
         try {
             con = db.getConnection();
-            String sql = "SELECT id, name, surname, login, password FROM users WHERE id=?";
+            String sql = "SELECT id, name, surname, gender, login, password FROM users WHERE id=?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
 
@@ -82,6 +84,7 @@ public class UserRepository implements IUserRepository {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
+                        rs.getBoolean("gender"),
                         rs.getString("login"),
                         rs.getString("password")
                 );
@@ -109,6 +112,7 @@ public class UserRepository implements IUserRepository {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("surname"),
+                        rs.getBoolean("gender"),
                         rs.getString("login"),
                         rs.getString("password")
                 );
