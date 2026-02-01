@@ -5,21 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/NewUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/VehicleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/ICategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/INewUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IVehicleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/MyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/controllers/BusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/BusController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/models/NewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/models/NewUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/repositories/BusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/BusRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/repositories/CarRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/CarRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/repositories/MotorcycleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/MotorcycleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/repositories/SpecialVehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/SpecialVehicleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/repositories/TruckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/TruckRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/company/repositories/interfaces/IBusRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IBusRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/company/repositories/interfaces/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/MyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/MyApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/BusController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/BusController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/SpecialVehicleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/SpecialVehicleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/TruckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/TruckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/BusRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/repositories/BusRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/IBusRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/IBusRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/interfaces/IUserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/data/PostgresDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/data/interfaces/IDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/CarRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/MotorcycleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/SpecialVehicleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/TruckRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/ICarRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/IMotorcycleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/ISpecialVehicleRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/company/repositories/interfaces/ITruckRepository.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +43,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -56,30 +76,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/amirsaulebekov/Documents/UNI/IT Uni/OOP/ProjectOOP&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "arsen",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/amirsaulebekov/Documents/UNI/IT Uni/OOP/ProjectOOP",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -99,6 +119,55 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="pom.xml" />
       <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
   </component>
