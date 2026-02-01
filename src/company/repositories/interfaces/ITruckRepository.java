@@ -1,4 +1,5 @@
 package company.repositories.interfaces;
+import company.models.Motorcycle;
 import company.models.Truck;
 import java.util.List;
 
@@ -8,4 +9,6 @@ public interface ITruckRepository {
     Truck getById(int id);
     boolean update(Truck truck);
     boolean delete(int id);
+    List<Truck> getAllSortedByPrice();
+    List<Truck> getAllSortedByYear();
 }

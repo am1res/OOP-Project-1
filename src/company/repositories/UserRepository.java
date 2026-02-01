@@ -38,7 +38,7 @@ public class UserRepository implements IUserRepository {
                 );
             }
         } catch (SQLException e) {
-            System.out.println("Ошибка при входе: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         } finally {
             try { if (con != null) con.close(); } catch (SQLException e) { e.printStackTrace(); }
         }

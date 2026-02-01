@@ -5,9 +5,9 @@ public class NewUser {
     private String name;
     private String surname;
     private boolean gender;
-    private Role role;
+    private String role;
 
-    public NewUser(int id, String name, String surname, boolean gender, Role role) {
+    public NewUser(int id, String name, String surname, boolean gender, String role) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -24,11 +24,11 @@ public class NewUser {
     public String getSurname() { return surname; }
     public void setSurname(String surname) { this.surname = surname; }
 
-    public boolean isGender() { return gender; }
+    public boolean getGender() { return gender; }
     public void setGender(boolean gender) { this.gender = gender; }
 
-    public Role getRole() { return role; }
-    public void setRole(Role role) { this.role = role; }
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 
     @Override
     public String toString() {

@@ -3,10 +3,14 @@ package company;
 import company.data.PostgresDB;
 import company.data.interfaces.IDB;
 
+import company.models.Car;
 import company.repositories.*;
 import company.repositories.interfaces.*;
 import company.controllers.UserController;
 import company.controllers.interfaces.IUserController;
+
+import java.util.List;
+
 /**
  * Main entry point for Vehicle Management System
  * Initializes all repositories and starts the application
@@ -22,26 +26,56 @@ public class  Main {
             String dbName = "kolesa_db";
 
             System.out.println("🔌 Connecting to database...");
-            IDB db = new PostgresDB(dbUrl, dbUser, dbPassword, dbName);
+            PostgresDB db = new PostgresDB(dbUrl, dbUser, dbPassword, dbName);
             System.out.println("✅ Database connected successfully!\n");
 
             // ===== INITIALIZE ALL REPOSITORIES =====
             System.out.println("📦 Initializing repositories...");
             IUserRepository userRepo = new UserRepository(db);
-            ICarRepository carRepo = new CarRepository(db);
+            ICarRepository carRepo = new CarRepository(db) {
+                @Override
+                public boolean update(Car car) {
+                    return false;
+                }
+
+                @Override
+                public boolean delete(int id) {
+                    return false;
+                }
+
+                @Override
+                public List<Car> getAllSortedByPrice() {
+                    return List.of();
+                }
+
+                @Override
+                public List<Car> getAllSortedByYear() {
+                    return List.of();
+                }
+            };
             IMotorcycleRepository motorcycleRepo = new MotorcycleRepository(db);
-            IBusRepository busRepo = new BusRepository(db);
+            BusRepository busRepo = new BusRepository(db) {
+                @Override
+                public boolean add(Car car) {
+                    return false;
+                }
+
+                @Override
+                public boolean update(Car car) {
+                    return false;
+                }
+            };
             ITruckRepository truckRepo = new TruckRepository(db);
             ISpecialVehicleRepository specialVehicleRepo = new SpecialVehicleRepository(db);
             System.out.println("✅ All repositories initialized!\n");
 
             // ===== START APPLICATION =====
             MyApplication app = new MyApplication(
-                    db,
+                    (IDB) db,
                     userRepo,
                     carRepo,
                     motorcycleRepo,
-                    busRepo,
+                    (IBusRepository) busRepo,
                     truckRepo,
                     specialVehicleRepo
             );
