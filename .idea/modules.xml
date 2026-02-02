@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Lecture5JDBCExample.iml" filepath="$PROJECT_DIR$/Lecture5JDBCExample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectOOP.iml" filepath="$PROJECT_DIR$/ProjectOOP.iml" />
     </modules>
   </component>
 </project>
