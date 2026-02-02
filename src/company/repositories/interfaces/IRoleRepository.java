@@ -8,4 +8,5 @@ public interface IRoleRepository {
     Role getRoleById(int id);
     Role getRoleByName(String name);
     List<Role> getAllRoles();
+    boolean deleteRole(int id);
 }

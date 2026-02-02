@@ -97,4 +97,19 @@ public class NewUserRepository implements INewUserRepository {
             return false;
         }
     }
+
+    @Override
+    public boolean updateUserRole(int id, String newRole) {
+        String sql = "UPDATE users SET role = ? WHERE id = ?";
+        try (Connection con = db.getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setString(1, newRole);
+            st.setInt(2, id);
+            return st.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+            return false;
+        }
+    }
+
 }

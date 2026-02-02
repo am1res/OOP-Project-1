@@ -66,6 +66,20 @@ public class  CategoryRepository implements ICategoryRepository {
         return null;
     }
 
+    @Override
+    public boolean deleteCategory(int id) {
+        String sql = "DELETE FROM categories WHERE id = ?";
+        try (Connection con = db.getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setInt(1, id);
+            return st.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+            return false;
+        }
+    }
+
+
     public void getVehiclesWithCategories() {
         String sql = "SELECT v.brand, v.model, c.name as category_name " +
                 "FROM vehicles v " +

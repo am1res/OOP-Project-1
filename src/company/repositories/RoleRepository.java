@@ -1,8 +1,10 @@
 package company.repositories;
 
 import company.data.interfaces.IDB;
+
 import company.models.Role;
 import company.repositories.interfaces.IRoleRepository;
+
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -77,4 +79,18 @@ public class RoleRepository implements IRoleRepository {
             return null;
         }
     }
+
+    @Override
+    public boolean deleteRole(int id) {
+        String sql = "DELETE FROM roles WHERE id = ?";
+        try (Connection con = db.getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setInt(1, id);
+            return st.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+            return false;
+        }
+    }
+
 }

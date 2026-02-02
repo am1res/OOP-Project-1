@@ -1,94 +1,50 @@
 package company;
 
-import company.data.PostgresDB;
+import company.data.interfaces.PostgresDB;
 import company.data.interfaces.IDB;
-
-import company.models.Car;
 import company.repositories.*;
 import company.repositories.interfaces.*;
-import company.controllers.UserController;
-import company.controllers.interfaces.IUserController;
 
-import java.util.List;
-
-/**
- * Main entry point for Vehicle Management System
- * Initializes all repositories and starts the application
- */
-public class  Main {
+public class Main {
 
     public static void main(String[] args) {
         try {
-            // ===== DATABASE CONFIGURATION =====
-            String dbUrl = "jdbc:postgresql://localhost:5433";
+            // Database configuration
+            String dbUrl = "jdbc:postgresql://localhost:5432";
             String dbUser = "postgres";
             String dbPassword = "0000";
-            String dbName = "kolesa_db";
+            String dbName = "kolesakz";
 
-            System.out.println("🔌 Connecting to database...");
+            System.out.println("Connecting to database...");
             PostgresDB db = new PostgresDB(dbUrl, dbUser, dbPassword, dbName);
-            System.out.println("✅ Database connected successfully!\n");
+            System.out.println("SUCCESS: Database connected!\n");
 
-            // ===== INITIALIZE ALL REPOSITORIES =====
-            System.out.println("📦 Initializing repositories...");
-            IUserRepository userRepo = new UserRepository(db);
-            ICarRepository carRepo = new CarRepository(db) {
-                @Override
-                public boolean update(Car car) {
-                    return false;
-                }
+            // Initialize repositories directly (no factory needed)
+            System.out.println("Initializing repositories...");
+            INewUserRepository userRepo = new NewUserRepository(db);
+            ICategoryRepository categoryRepo = new CategoryRepository(db);
+            IRoleRepository roleRepo = new RoleRepository(db);
+            IVehicleRepository vehicleRepo = new VehicleRepository(db) {};
+            System.out.println("SUCCESS: All repositories initialized!\n");
 
-                @Override
-                public boolean delete(int id) {
-                    return false;
-                }
-
-                @Override
-                public List<Car> getAllSortedByPrice() {
-                    return List.of();
-                }
-
-                @Override
-                public List<Car> getAllSortedByYear() {
-                    return List.of();
-                }
-            };
-            IMotorcycleRepository motorcycleRepo = new MotorcycleRepository(db);
-            BusRepository busRepo = new BusRepository(db) {
-                @Override
-                public boolean add(Car car) {
-                    return false;
-                }
-
-                @Override
-                public boolean update(Car car) {
-                    return false;
-                }
-            };
-            ITruckRepository truckRepo = new TruckRepository(db);
-            ISpecialVehicleRepository specialVehicleRepo = new SpecialVehicleRepository(db);
-            System.out.println("✅ All repositories initialized!\n");
-
-            // ===== START APPLICATION =====
+            // Start application
             MyApplication app = new MyApplication(
-                    (IDB) db,
+                    db,
                     userRepo,
-                    carRepo,
-                    motorcycleRepo,
-                    (IBusRepository) busRepo,
-                    truckRepo,
-                    specialVehicleRepo
+                    categoryRepo,
+                    roleRepo,
+                    vehicleRepo
             );
 
             app.start();
 
-            // ===== CLEANUP =====
-            System.out.println("\n🔌 Closing database connection...");
+            // Cleanup
+            System.out.println("\nClosing database connection...");
             db.close();
-            System.out.println("✅ Database connection closed.");
+            System.out.println("SUCCESS: Database connection closed.");
 
         } catch (Exception e) {
-            System.err.println("\n❌ FATAL ERROR: " + e.getMessage());
+            System.err.println("\nERROR: " + e.getMessage());
             e.printStackTrace();
         }
     }

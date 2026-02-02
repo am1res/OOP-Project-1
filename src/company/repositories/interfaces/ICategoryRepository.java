@@ -7,4 +7,5 @@ public interface ICategoryRepository {
     boolean createCategory(String name);
     List<Category> getAllCategories();
     Category getCategoryById(int id);
+    boolean deleteCategory(int id);
 }

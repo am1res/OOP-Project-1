@@ -5,7 +5,8 @@ import java.util.List;
 
 public interface INewUserRepository {
     boolean add(NewUser user);
-    NewUser getById(int id);
     List<NewUser> getAll();
+    NewUser getById(int id);
     boolean delete(int id);
+    boolean updateUserRole(int id, String newRole);  // Add this line
 }

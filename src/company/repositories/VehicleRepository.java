@@ -10,7 +10,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class VehicleRepository  implements IVehicleRepository {
+public class VehicleRepository  implements IVehicleRepository {
     private final IDB db;
 
     public VehicleRepository(IDB db) {
@@ -19,7 +19,7 @@ public abstract class VehicleRepository  implements IVehicleRepository {
 
     @Override
     public boolean addVehicle(Vehicle vehicle) {
-        return add(vehicle);
+        return addVehicle(vehicle);
     }
 
     @Override
@@ -32,7 +32,7 @@ public abstract class VehicleRepository  implements IVehicleRepository {
         String sql = "SELECT v.*, u.name as user_name, u.surname as user_surname, u.gender, u.role, " +
                 "c.name as category_name " +
                 "FROM vehicles v " +
-                "JOIN users u ON v.owner_id = u.id " +
+                "JOIN users u ON v.user_id = u.id " +
                 "JOIN categories c ON v.category_id = c.id " +
                 "WHERE v.id = ?";
 
@@ -55,7 +55,7 @@ public abstract class VehicleRepository  implements IVehicleRepository {
     public List<Vehicle> getVehiclesByCategoryId(int categoryId) {
         String sql = "SELECT v.*, u.name as user_name, u.surname as user_surname, u.gender, u.role, " +
                 "c.name as category_name " +
-                "FROM vehicles v JOIN users u ON v.owner_id = u.id " +
+                "FROM vehicles v JOIN users u ON v.user_id = u.id " +
                 "JOIN categories c ON v.category_id = c.id " +
                 "WHERE v.category_id = ?";
 
@@ -75,9 +75,37 @@ public abstract class VehicleRepository  implements IVehicleRepository {
         return list;
     }
 
+    @Override
+    public boolean updateVehicleAvailability(int vehicleId, boolean available) {
+        String sql = "UPDATE vehicles SET is_available = ? WHERE id = ?";
+        try (Connection con = db.getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setBoolean(1, available);
+            st.setInt(2, vehicleId);
+            return st.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public boolean deleteVehicle(int id) {
+        String sql = "DELETE FROM vehicles WHERE id = ?";
+        try (Connection con = db.getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setInt(1, id);
+            return st.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+            return false;
+        }
+    }
+
+
     private Vehicle createVehicleFromResultSet(ResultSet rs) throws SQLException {
         NewUser owner = new NewUser(
-                rs.getInt("owner_id"),
+                rs.getInt("user_id"),
                 rs.getString("user_name"),
                 rs.getString("user_surname"),
                 rs.getBoolean("gender"),

@@ -1,4 +1,4 @@
-package company.data;
+package company.data.interfaces;
 
 import company.data.interfaces.IDB;
 
@@ -11,7 +11,6 @@ public class PostgresDB implements IDB {
     private String dbName;
     private Connection connection;
 
-    // ✅ ADD THIS CONSTRUCTOR
     public PostgresDB(String host, String username, String password, String dbName) {
         this.host = host;
         this.username = username;
@@ -20,7 +19,6 @@ public class PostgresDB implements IDB {
         this.connection = null;
     }
 
-    // Keep the default constructor for backward compatibility (optional)
     public PostgresDB() {
         this.connection = null;
     }
@@ -33,15 +31,11 @@ public class PostgresDB implements IDB {
                 return connection;
             }
 
-            // Here we load the driver's class file into memory at the runtime
             Class.forName("org.postgresql.Driver");
-
-            // Establish the connection
             connection = DriverManager.getConnection(connectionUrl, username, password);
-
             return connection;
         } catch (Exception e) {
-            System.out.println("❌ Failed to connect to postgres: " + e.getMessage());
+            System.out.println("ERROR: Failed to connect to postgres: " + e.getMessage());
             return null;
         }
     }
@@ -78,12 +72,13 @@ public class PostgresDB implements IDB {
         this.dbName = dbName;
     }
 
+    @Override
     public void close() {
         if (connection != null) {
             try {
                 connection.close();
             } catch (SQLException ex) {
-                System.out.println("❌ Connection close error: " + ex.getMessage());
+                System.out.println("ERROR: Connection close error: " + ex.getMessage());
             }
         }
     }
