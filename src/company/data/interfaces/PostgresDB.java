@@ -5,6 +5,7 @@ import company.data.interfaces.IDB;
 import java.sql.*;
 
 public class PostgresDB implements IDB {
+    private static PostgresDB instance;
     private String host;
     private String username;
     private String password;
@@ -21,6 +22,13 @@ public class PostgresDB implements IDB {
 
     public PostgresDB() {
         this.connection = null;
+    }
+
+    public static PostgresDB getInstance(String host, String username, String password, String dbName) {
+        if (instance == null) {
+            instance = new PostgresDB(host, username, password, dbName);
+        }
+        return instance;
     }
 
     @Override

@@ -16,7 +16,7 @@ public class Main {
             String dbName = "kolesakz";
 
             System.out.println("Connecting to database...");
-            PostgresDB db = new PostgresDB(dbUrl, dbUser, dbPassword, dbName);
+            PostgresDB db = PostgresDB.getInstance(dbUrl, dbUser, dbPassword, dbName);
             System.out.println("SUCCESS: Database connected!\n");
 
             // Initialize repositories directly (no factory needed)
