@@ -1,15 +1,20 @@
 package company.controllers;
 
+import company.models.NewUser;
 import company.models.Vehicle;
+import company.repositories.NewUserRepository;
+import company.repositories.interfaces.INewUserRepository;
 import company.repositories.interfaces.IVehicleRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class VehicleController {
     private final IVehicleRepository vehicleRepository;
+    private final INewUserRepository userRepository;
 
-    public VehicleController(IVehicleRepository vehicleRepository) {
+    public VehicleController(IVehicleRepository vehicleRepository, INewUserRepository userRepository) {
         this.vehicleRepository = vehicleRepository;
+        this.userRepository = userRepository;
     }
 
     public String addVehicle(int userId, int categoryId, String type, String brand, String model, int year, double price) {
@@ -120,5 +125,45 @@ public class VehicleController {
         }
         return vehicleRepository.deleteVehicle(id) ?
                 "SUCCESS: Vehicle deleted!" : "ERROR: Failed to delete.";
+    }
+    public String buyVehicle(int vehicleId) {
+        if (UserController.currentUserRole == null) {
+            return "ERROR: You must be logged in!";
+        }
+        // Only users (or maybe also sellers/admins?) can buy
+        if (!UserController.currentUserRole.equalsIgnoreCase("USER")) {
+            return "ERROR: Only users can buy vehicles.";
+        }
+
+        Vehicle v = vehicleRepository.getVehicleById(vehicleId);
+        if (v == null) {
+            return "ERROR: Vehicle not found.";
+        }
+        if (!v.isAvailable()) {
+            return "ERROR: Vehicle is not available.";
+        }
+
+        double price = v.getPrice();
+        if (UserController.currentUserBalance < price) {
+            return "ERROR: Not enough balance. Needed: " + price +
+                    ", you have: " + UserController.currentUserBalance;
+        }
+
+        // Deduct balance
+        double newBalance = UserController.currentUserBalance - price;
+        boolean balanceUpdated = userRepository.updateBalance(UserController.currentUserId, newBalance);
+        if (!balanceUpdated) {
+            return "ERROR: Failed to update user balance.";
+        }
+
+
+        // Mark vehicle as not available
+        boolean updated = vehicleRepository.updateVehicleAvailability(vehicleId, false);
+        if (!updated) {
+            return "ERROR: Failed to update vehicle status.";
+        }
+
+        UserController.currentUserBalance = newBalance;
+        return "SUCCESS: Vehicle bought successfully! New balance: " + newBalance;
     }
 }

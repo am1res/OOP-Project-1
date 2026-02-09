@@ -5,16 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d67039d-7839-4e93-a7e2-9423749c3b16" name="Changes" comment="final changes">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/MyApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/MyApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/controllers/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/models/Bus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/models/Bus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/models/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/models/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/models/Motorcycle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/models/Motorcycle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/models/SpecialVehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/models/SpecialVehicle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/company/models/Truck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/company/models/Truck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/MyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/MyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/controllers/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/controllers/VehicleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/models/NewUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/models/NewUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/repositories/NewUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/NewUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/repositories/VehicleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/VehicleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/company/repositories/interfaces/INewUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/company/repositories/interfaces/INewUserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +141,8 @@
       <workItem from="1769974818645" duration="4779000" />
       <workItem from="1770007206833" duration="713000" />
       <workItem from="1770008729283" duration="350000" />
-      <workItem from="1770009090231" duration="3343000" />
+      <workItem from="1770009090231" duration="6858000" />
+      <workItem from="1770548147334" duration="3343000" />
     </task>
     <task id="LOCAL-00001" summary="final changes">
       <option name="closed" value="true" />
@@ -153,7 +152,23 @@
       <option name="project" value="LOCAL" />
       <updated>1770012393410</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="final changes">
+      <option name="closed" value="true" />
+      <created>1770012460177</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770012460177</updated>
+    </task>
+    <task id="LOCAL-00003" summary="final changes">
+      <option name="closed" value="true" />
+      <created>1770012536327</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1770012536327</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

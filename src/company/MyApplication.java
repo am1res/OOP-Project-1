@@ -28,7 +28,7 @@ public class MyApplication {
         this.userController = new UserController(userRepo);
         this.categoryController = new CategoryController(categoryRepo);
         this.roleController = new RoleController(roleRepo);
-        this.vehicleController = new VehicleController(vehicleRepo);
+        this.vehicleController = new VehicleController(vehicleRepo, (INewUserRepository) userRepo);
     }
 
     private void mainMenu() {
@@ -97,20 +97,17 @@ public class MyApplication {
     }
 
 
-    // ==================== LOGIN/LOGOUT ====================
     private void loginMenu() {
         System.out.println("\n--- LOGIN ---");
         scanner.nextLine();
-        System.out.print("Enter username: ");
-        String name = scanner.nextLine().trim();
+        System.out.print("Enter login: ");
+        String login = scanner.nextLine().trim();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine().trim();
 
-        System.out.println(userController.login(name));
-
-        if (UserController.currentUserRole == null) {
-            System.out.println("ERROR: Login failed. Try again.");
-            loginMenu();
-        }
+        System.out.println(userController.login(login, password));
     }
+
 
     private void logoutMenu() {
         System.out.println("SUCCESS: Logged out successfully!");
@@ -357,6 +354,9 @@ public class MyApplication {
             System.out.println("2. Get Vehicle by ID");
             System.out.println("3. Get Vehicles by Category");
             System.out.println("4. Delete Vehicle");
+            System.out.println("5. Buy Vehicle");
+            System.out.println("0. Back");
+
             System.out.println("0. Back");
             System.out.print("Enter choice: ");
 
@@ -375,6 +375,9 @@ public class MyApplication {
 
                     case 4:
                         deleteVehicleMenu();
+                        break;
+                    case 5:
+                        buyVehicleMenu();
                         break;
                     case 0:
                         inMenu = false;
@@ -409,6 +412,12 @@ public class MyApplication {
 
         System.out.println(vehicleController.addVehicle(userId, categoryId, type, brand, model, year, price));
     }
+    private void buyVehicleMenu() {
+        System.out.print("\nEnter vehicle ID to buy: ");
+        int vehicleId = getIntInput();
+        System.out.println(vehicleController.buyVehicle(vehicleId));
+    }
+
 
     private void getVehicleByIdMenu() {
         System.out.print("\nEnter vehicle ID: ");

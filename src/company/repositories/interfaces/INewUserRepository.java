@@ -8,5 +8,7 @@ public interface INewUserRepository {
     List<NewUser> getAll();
     NewUser getById(int id);
     boolean delete(int id);
-    boolean updateUserRole(int id, String newRole);  // Add this line
+    boolean updateUserRole(int id, String newRole);
+    NewUser getByLoginAndPassword(String login, String password); // NEW
+    boolean updateBalance(int userId, double newBalance);  // Add this line
 }

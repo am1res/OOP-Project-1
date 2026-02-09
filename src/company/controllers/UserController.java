@@ -10,44 +10,37 @@ public class UserController {
     public static String currentUserRole = null;
     public static String currentUserName = null;
     public static int currentUserId = 0;
+    public static double currentUserBalance = 0.0;
 
     public UserController(INewUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public String login(String name) {
-        if (name == null || name.isEmpty()) {
-            return "ERROR: Invalid username!";
+    public String login(String login, String password) {
+        if (login == null || login.isEmpty() ||
+                password == null || password.isEmpty()) {
+            return "ERROR: Login and password are required!";
         }
 
-        // Search for user in database
-        List<NewUser> allUsers = userRepository.getAll();
-        if (allUsers == null) {
-            return "ERROR: Database connection failed!";
+        NewUser user = userRepository.getByLoginAndPassword(login, password);
+        if (user == null) {
+            return "ERROR: Invalid login or password!";
         }
 
-        // Search by first name + last name combination
-        NewUser loginUser = allUsers.stream()
-                .filter(u -> (u.getName() + " " + u.getSurname()).equalsIgnoreCase(name))
-                .findFirst()
-                .orElse(null);
+        currentUserId = user.getId();
+        currentUserName = user.getName();
+        currentUserRole = user.getRole();
+        currentUserBalance = user.getBalance();
 
-        if (loginUser == null) {
-            return "ERROR: User not found!";
-        }
-
-        currentUserRole = loginUser.getRole();
-        currentUserName = loginUser.getName();
-        currentUserId = loginUser.getId();
-
-        return "SUCCESS: Logged in as " + currentUserRole + ": " + currentUserName + " " + loginUser.getSurname() + " (ID: " + currentUserId + ")";
+        return "SUCCESS: Logged in as " + currentUserRole +
+                " (" + currentUserName + "), balance: " + currentUserBalance;
     }
 
-
     public static void logout() {
-        currentUserRole = null;
-        currentUserName = null;
         currentUserId = 0;
+        currentUserName = null;
+        currentUserRole = null;
+        currentUserBalance = 0.0;
     }
 
     public String createUser(String name, String surname, boolean gender, String role) {
@@ -65,7 +58,7 @@ public class UserController {
             return "ERROR: Access denied! Only admins can create users.";
         }
 
-        NewUser user = new NewUser(0, name, surname, gender, role);
+        NewUser user = new NewUser(0, name, surname, gender, role, "", "", 0.0);
         return userRepository.add(user) ? "SUCCESS: User created!" : "ERROR: Failed to create user.";
     }
 

@@ -52,7 +52,10 @@ public class NewUserRepository implements INewUserRepository {
                         rs.getString("name"),
                         rs.getString("surname"),
                         rs.getBoolean("gender"),
-                        rs.getString("role")
+                        rs.getString("role"),
+                        "",
+                        "",
+                        0.0
                 ));
             }
             return users;
@@ -76,7 +79,10 @@ public class NewUserRepository implements INewUserRepository {
                         rs.getString("name"),
                         rs.getString("surname"),
                         rs.getBoolean("gender"),
-                        rs.getString("role")
+                        rs.getString("role"),
+                        "",
+                        "",
+                        0.0
                 );
             }
         } catch (SQLException e) {
@@ -111,5 +117,45 @@ public class NewUserRepository implements INewUserRepository {
             return false;
         }
     }
+    @Override
+    public NewUser getByLoginAndPassword(String login, String password) {
+        String sql = "SELECT * FROM users WHERE login = ? AND password = ?";
+        try (Connection con = db.getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setString(1, login);
+            st.setString(2, password);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return new NewUser(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("surname"),
+                        rs.getBoolean("gender"),
+                        rs.getString("role"),
+                        rs.getString("login"),
+                        rs.getString("password"),
+                        rs.getDouble("balance")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public boolean updateBalance(int userId, double newBalance) {
+        String sql = "UPDATE users SET balance = ? WHERE id = ?";
+        try (Connection con = db.getConnection();
+             PreparedStatement st = con.prepareStatement(sql)) {
+            st.setDouble(1, newBalance);
+            st.setInt(2, userId);
+            return st.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+            return false;
+        }
+    }
+
 
 }

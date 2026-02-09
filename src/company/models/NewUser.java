@@ -6,13 +6,19 @@ public class NewUser {
     private String surname;
     private boolean gender;
     private String role;
+    private String login;
+    private String password;
+    private double balance;
 
-    public NewUser(int id, String name, String surname, boolean gender, String role) {
+    public NewUser(int id, String name, String surname, boolean gender, String role, String login, String password, double balance) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.gender = gender;
         this.role = role;
+        this.login = login;
+        this.password = password;
+        this.balance = balance;
     }
 
     public int getId() { return id; }
@@ -29,6 +35,15 @@ public class NewUser {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public String getLogin() { return login; }
+    public void setLogin(String login) { this.login = login; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public double getBalance() { return balance; }
+    public void setBalance(double balance) { this.balance = balance; }
 
     @Override
     public String toString() {

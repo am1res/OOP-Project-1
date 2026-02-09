@@ -109,7 +109,10 @@ public class VehicleRepository  implements IVehicleRepository {
                 rs.getString("user_name"),
                 rs.getString("user_surname"),
                 rs.getBoolean("gender"),
-                rs.getString("role")
+                rs.getString("role"),
+                "",
+                "",
+                0.0
         );
 
         Category category = new Category(
